@@ -185,16 +185,12 @@ function App() {
     <main className="app-shell">
       <section className="hero-section" aria-labelledby="page-title">
         <div className="hero-copy">
-          <p className="eyebrow">Simplified PageRank-era search demo</p>
           <h1 id="page-title" className="brand-mark" aria-label="Explaining the Order">
             <span>Explaining</span>
             <span>the</span>
             <span>Order</span>
           </h1>
-          <p className="hero-summary">
-            Search a frozen 5,000-page Wikipedia corpus. Relevance narrows the universe; local
-            PageRank explains authority inside the matching pages.
-          </p>
+          <p className="hero-summary">Search a frozen 5,000-page Wikipedia corpus.</p>
           <form className="search-form" onSubmit={handleSubmit}>
             <label className="search-label" htmlFor="query-input">
               Search query
@@ -212,10 +208,6 @@ function App() {
               <button type="submit">Search</button>
             </div>
           </form>
-          <p className="corpus-note">
-            Fixed source: {corpus.source}, {corpus.pages.length.toLocaleString()} real article pages,
-            captured {formatDate(corpus.capturedAt)}.
-          </p>
         </div>
       </section>
 
@@ -757,13 +749,6 @@ function formatPercent(score: number) {
   return `${Math.round(score * 100)}%`
 }
 
-function formatDate(value: string) {
-  return new Intl.DateTimeFormat('en', {
-    month: 'short',
-    day: 'numeric',
-    year: 'numeric',
-  }).format(new Date(value))
-}
 
 function easeOutCubic(progress: number) {
   return 1 - Math.pow(1 - progress, 3)
